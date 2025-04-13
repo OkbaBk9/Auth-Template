@@ -73,12 +73,12 @@ const ResetPassword = () => {
           />
         </div>
 
-        <Button type="submit" className="w-full bg-[#10b981] hover:bg-[#0d9669]">
+        <Button type="submit" className="w-full bg-[#10b981] hover:bg-[#0d9669] transition-all duration-300">
           Reset Password
         </Button>
       </form>
 
-      <p className="text-center mt-6">
+      <p className="text-center mt-6 text-gray-600">
         Remember your password?{" "}
         <Link to="/login" className="text-[#10b981] hover:text-[#0d9669] font-semibold">
           Back to login

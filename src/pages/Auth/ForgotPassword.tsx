@@ -39,7 +39,7 @@ const ForgotPassword = () => {
             Please check your email and click on the link to reset your password.
           </p>
           <Button 
-            className="mt-4 bg-[#10b981] hover:bg-[#0d9669]"
+            className="mt-4 bg-[#10b981] hover:bg-[#0d9669] transition-all duration-300"
             onClick={() => setIsSubmitted(false)}
           >
             Send another link
@@ -59,7 +59,7 @@ const ForgotPassword = () => {
                 type="email"
                 id="email"
                 placeholder="your@email.com"
-                className="pl-10"
+                className="pl-10 border-[#10b981]/30 focus:border-[#10b981] focus:ring-[#10b981]/20"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -67,13 +67,13 @@ const ForgotPassword = () => {
             </div>
           </div>
 
-          <Button type="submit" className="w-full bg-[#10b981] hover:bg-[#0d9669]">
+          <Button type="submit" className="w-full bg-[#10b981] hover:bg-[#0d9669] transition-all duration-300">
             Send Reset Link
           </Button>
         </form>
       )}
 
-      <p className="text-center mt-6">
+      <p className="text-center mt-6 text-gray-600">
         Remember your password?{" "}
         <Link to="/login" className="text-[#10b981] hover:text-[#0d9669] font-semibold">
           Back to login

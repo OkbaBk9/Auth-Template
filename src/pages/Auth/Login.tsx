@@ -27,7 +27,7 @@ const Login = () => {
 
   return (
     <AuthLayout>
-      <h2 className="text-xl text-gray-600 text-center mb-6">Login to access your workspace</h2>
+      <h2 className="text-xl text-gray-600 text-center mb-6">Login to your account</h2>
       
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="space-y-2">
@@ -42,7 +42,7 @@ const Login = () => {
               type="email"
               id="email"
               placeholder="your@email.com"
-              className="pl-10"
+              className="pl-10 border-[#10b981]/30 focus:border-[#10b981] focus:ring-[#10b981]/20"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -68,35 +68,17 @@ const Login = () => {
           </div>
         </div>
 
-        <Button type="submit" className="w-full bg-[#10b981] hover:bg-[#0d9669]">
+        <Button type="submit" className="w-full bg-[#10b981] hover:bg-[#0d9669] transition-all duration-300">
           Login
         </Button>
       </form>
 
-      <p className="text-center mt-6">
+      <p className="text-center mt-6 text-gray-600">
         Don't have an account?{" "}
         <Link to="/signup" className="text-[#10b981] hover:text-[#0d9669] font-semibold">
           Sign up
         </Link>
       </p>
-
-      <div className="mt-8 pt-6 border-t border-gray-200">
-        <p className="text-sm text-center text-gray-500 mb-2">For demo purposes, use:</p>
-        <div className="space-y-1 text-sm text-gray-600">
-          <p>
-            Admin: <a href="mailto:admin@example.com" className="underline">admin@example.com</a> | 
-            Password: <span className="font-mono">password123</span>
-          </p>
-          <p>
-            Teacher: <a href="mailto:teacher@example.com" className="underline">teacher@example.com</a> | 
-            Password: <span className="font-mono">password123</span>
-          </p>
-          <p>
-            Student: <a href="mailto:student@example.com" className="underline">student@example.com</a> | 
-            Password: <span className="font-mono">password123</span>
-          </p>
-        </div>
-      </div>
     </AuthLayout>
   );
 };

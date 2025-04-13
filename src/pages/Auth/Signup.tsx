@@ -62,7 +62,7 @@ const Signup = () => {
               type="text"
               id="fullName"
               placeholder="John Doe"
-              className="pl-10"
+              className="pl-10 border-[#10b981]/30 focus:border-[#10b981] focus:ring-[#10b981]/20"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
               required
@@ -82,7 +82,7 @@ const Signup = () => {
               type="email"
               id="email"
               placeholder="your@email.com"
-              className="pl-10"
+              className="pl-10 border-[#10b981]/30 focus:border-[#10b981] focus:ring-[#10b981]/20"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -113,12 +113,12 @@ const Signup = () => {
           />
         </div>
 
-        <Button type="submit" className="w-full bg-[#10b981] hover:bg-[#0d9669]">
+        <Button type="submit" className="w-full bg-[#10b981] hover:bg-[#0d9669] transition-all duration-300">
           Create Account
         </Button>
       </form>
 
-      <p className="text-center mt-6">
+      <p className="text-center mt-6 text-gray-600">
         Already have an account?{" "}
         <Link to="/login" className="text-[#10b981] hover:text-[#0d9669] font-semibold">
           Login

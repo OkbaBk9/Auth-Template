@@ -25,20 +25,20 @@ const PasswordInput = ({ id, placeholder = "••••••••", value, on
       <Input
         type={showPassword ? "text" : "password"}
         id={id}
-        className="pl-10 pr-10"
+        className="pl-10 pr-10 border-[#10b981]/30 focus:border-[#10b981] focus:ring-[#10b981]/20"
         placeholder={placeholder}
         value={value}
         onChange={onChange}
       />
       <button
         type="button"
-        className="absolute inset-y-0 right-0 flex items-center pr-3"
+        className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600"
         onClick={togglePasswordVisibility}
       >
         {showPassword ? (
-          <EyeOff className="h-5 w-5 text-gray-400" />
+          <EyeOff className="h-5 w-5" />
         ) : (
-          <Eye className="h-5 w-5 text-gray-400" />
+          <Eye className="h-5 w-5" />
         )}
       </button>
     </div>
