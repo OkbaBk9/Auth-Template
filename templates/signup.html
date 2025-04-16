@@ -1,0 +1,68 @@
+
+{% extends "base.html" %}
+
+{% block title %}Sign Up - JM3IA{% endblock %}
+
+{% block content %}
+<h2 class="text-2xl font-semibold text-center mb-6">Create Account</h2>
+<form method="POST" action="{{ url_for('signup') }}">
+    {% if error %}
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+        {{ error }}
+    </div>
+    {% endif %}
+    
+    <div class="space-y-4">
+        <div class="relative">
+            <div class="input-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </div>
+            <input type="text" name="name" id="name" class="input-field" placeholder="Full Name" required>
+        </div>
+        
+        <div class="relative">
+            <div class="input-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                </svg>
+            </div>
+            <input type="email" name="email" id="email" class="input-field" placeholder="Email" required>
+        </div>
+        
+        <div class="relative">
+            <div class="input-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+                </svg>
+            </div>
+            <input type="password" name="password" id="password" class="input-field" placeholder="Password" required>
+        </div>
+        
+        <div class="relative">
+            <div class="input-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+                </svg>
+            </div>
+            <input type="password" name="confirm_password" id="confirm_password" class="input-field" placeholder="Confirm Password" required>
+        </div>
+        
+        <div class="flex items-center">
+            <input type="checkbox" id="terms" name="terms" class="h-4 w-4 text-green-500 border-gray-300 rounded" required>
+            <label for="terms" class="ml-2 block text-sm text-gray-700">
+                I agree to the <a href="#" class="text-green-600 hover:text-green-500">Terms of Service</a> and <a href="#" class="text-green-600 hover:text-green-500">Privacy Policy</a>
+            </label>
+        </div>
+        
+        <button type="submit" class="auth-button w-full">Create Account</button>
+        
+        <div class="text-center mt-4">
+            <span class="text-gray-600">Already have an account?</span>
+            <a href="{{ url_for('login') }}" class="text-green-600 hover:text-green-500 ml-1">Sign in</a>
+        </div>
+    </div>
+</form>
+{% endblock %}
