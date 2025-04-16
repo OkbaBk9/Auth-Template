@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 import os
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -15,7 +14,7 @@ reset_tokens = {}
 
 @app.route('/')
 def index():
-    return redirect(url_for('login'))
+    return render_template('home.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

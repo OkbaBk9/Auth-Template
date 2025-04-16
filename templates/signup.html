@@ -1,9 +1,8 @@
-
 {% extends "base.html" %}
 
 {% block title %}Sign Up - JM3IA{% endblock %}
 
-{% block content %}
+{% block auth_content %}
 <h2 class="text-2xl font-semibold text-center mb-6">Create Account</h2>
 <form method="POST" action="{{ url_for('signup') }}">
     {% if error %}

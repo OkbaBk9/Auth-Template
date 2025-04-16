@@ -1,0 +1,94 @@
+
+{% extends "base_main.html" %}
+
+{% block title %}JM3IA - Intelligent Automation Platform{% endblock %}
+
+{% block content %}
+<main>
+    <!-- Hero Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 space-y-8">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
+                        Transform Your Business with <span class="text-[#10b981]">Intelligent Automation</span>
+                    </h1>
+                    <p class="text-xl text-gray-600">
+                        Streamline your operations, reduce costs, and increase efficiency with our cutting-edge AI-powered automation platform.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="{{ url_for('signup') }}" class="primary-button">
+                            Get Started Free
+                        </a>
+                        <a href="#features" class="secondary-button">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="glass-card p-6 rounded-2xl shadow-xl">
+                        <img src="https://placehold.co/600x400/e6f7f0/10b981" alt="Platform Preview" class="rounded-lg w-full">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-6 bg-white/50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Why Choose JM3IA?</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="glass-card p-6 space-y-4">
+                    <div class="w-12 h-12 bg-[#10b981]/20 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-[#10b981]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">Lightning Fast</h3>
+                    <p class="text-gray-600">Experience blazing-fast automation with our optimized platform.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="glass-card p-6 space-y-4">
+                    <div class="w-12 h-12 bg-[#10b981]/20 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-[#10b981]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">AI-Powered</h3>
+                    <p class="text-gray-600">Leverage advanced AI algorithms to automate complex tasks.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="glass-card p-6 space-y-4">
+                    <div class="w-12 h-12 bg-[#10b981]/20 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-[#10b981]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">Secure & Reliable</h3>
+                    <p class="text-gray-600">Enterprise-grade security with 99.9% uptime guarantee.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center space-y-8">
+            <h2 class="text-3xl font-bold text-gray-800">Ready to Get Started?</h2>
+            <p class="text-xl text-gray-600">Join thousands of businesses already using JM3IA to automate their operations.</p>
+            <div class="flex gap-4 justify-center">
+                <a href="{{ url_for('signup') }}" class="primary-button">
+                    Start Free Trial
+                </a>
+                <a href="{{ url_for('login') }}" class="secondary-button">
+                    Sign In
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

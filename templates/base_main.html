@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}JM3IA Platform{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .glass-card {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(167, 233, 210, 0.3);
+            border-radius: 1rem;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #e6f7f0 0%, #c8f5e3 100%);
+        }
+        .primary-button {
+            background-color: #10b981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+        .primary-button:hover {
+            background-color: #0d9669;
+        }
+        .secondary-button {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #10b981;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            border: 1px solid #10b981;
+        }
+        .secondary-button:hover {
+            background-color: #10b981;
+            color: white;
+        }
+    </style>
+    {% block extra_styles %}{% endblock %}
+</head>
+<body class="gradient-bg min-h-screen">
+    <nav class="py-4 px-6 flex items-center justify-between glass-card">
+        <a href="/" class="text-2xl font-bold text-[#10b981]">JM3IA</a>
+        <div class="space-x-4">
+            <a href="{{ url_for('login') }}" class="secondary-button">Login</a>
+            <a href="{{ url_for('signup') }}" class="primary-button">Sign Up</a>
+        </div>
+    </nav>
+    
+    {% block content %}{% endblock %}
+    
+    <footer class="py-8 px-6 text-center text-gray-600">
+        <p>&copy; 2025 JM3IA. All rights reserved.</p>
+    </footer>
+    
+    {% block scripts %}{% endblock %}
+</body>
+</html>
