@@ -7,54 +7,113 @@
     <title>{% block title %}JM3IA Platform{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
+        :root {
+            --primary: #10b981;
+            --primary-dark: #0d9669;
+            --primary-light: #a7e9d2;
+        }
+        
         .glass-card {
             background-color: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(167, 233, 210, 0.3);
             border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
+        
         .gradient-bg {
             background: linear-gradient(135deg, #e6f7f0 0%, #c8f5e3 100%);
         }
-        .primary-button {
-            background-color: #10b981;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            font-weight: 500;
-            transition: background-color 0.2s;
-        }
-        .primary-button:hover {
-            background-color: #0d9669;
-        }
-        .secondary-button {
-            background-color: rgba(255, 255, 255, 0.9);
-            color: #10b981;
+        
+        .btn {
             padding: 0.75rem 1.5rem;
             border-radius: 0.5rem;
             font-weight: 500;
             transition: all 0.2s;
-            border: 1px solid #10b981;
         }
-        .secondary-button:hover {
-            background-color: #10b981;
+        
+        .btn-primary {
+            background-color: var(--primary);
             color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .nav-link {
+            color: #4b5563;
+            transition: color 0.2s;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
         }
     </style>
     {% block extra_styles %}{% endblock %}
 </head>
 <body class="gradient-bg min-h-screen">
-    <nav class="py-4 px-6 flex items-center justify-between glass-card">
-        <a href="/" class="text-2xl font-bold text-[#10b981]">JM3IA</a>
+    <nav class="py-4 px-6 flex items-center justify-between glass-card sticky top-0 z-10">
+        <a href="/" class="text-2xl font-bold text-[#10b981] hover:text-[#0d9669] transition-colors">JM3IA</a>
+        <div class="hidden md:flex items-center space-x-6">
+            <a href="#features" class="nav-link">Features</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
         <div class="space-x-4">
-            <a href="{{ url_for('login') }}" class="secondary-button">Login</a>
-            <a href="{{ url_for('signup') }}" class="primary-button">Sign Up</a>
+            <a href="{{ url_for('login') }}" class="btn btn-outline">Login</a>
+            <a href="{{ url_for('signup') }}" class="btn btn-primary">Sign Up</a>
         </div>
     </nav>
     
     {% block content %}{% endblock %}
     
     <footer class="py-8 px-6 text-center text-gray-600">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 text-left">
+            <div>
+                <h3 class="font-bold mb-4">About</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="nav-link">Our Story</a></li>
+                    <li><a href="#" class="nav-link">Team</a></li>
+                    <li><a href="#" class="nav-link">Careers</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-4">Products</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="nav-link">Features</a></li>
+                    <li><a href="#" class="nav-link">Pricing</a></li>
+                    <li><a href="#" class="nav-link">Documentation</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-4">Resources</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="nav-link">Blog</a></li>
+                    <li><a href="#" class="nav-link">Support</a></li>
+                    <li><a href="#" class="nav-link">Community</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-4">Legal</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="nav-link">Privacy</a></li>
+                    <li><a href="#" class="nav-link">Terms</a></li>
+                    <li><a href="#" class="nav-link">Security</a></li>
+                </ul>
+            </div>
+        </div>
         <p>&copy; 2025 JM3IA. All rights reserved.</p>
     </footer>
     
