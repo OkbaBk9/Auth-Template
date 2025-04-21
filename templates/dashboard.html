@@ -1,36 +1,43 @@
 
-{% extends "base_main.html" %}
-
-{% block title %}Dashboard - JM3IA{% endblock %}
-
+{% extends "base.html" %}
 {% block content %}
-<div class="container mx-auto px-4 py-8">
-    <div class="glass-card p-8">
-        <div class="flex items-center justify-between mb-8">
-            <h1 class="text-2xl font-bold text-gray-800">Welcome, {{ user.name }}!</h1>
-            <a href="{{ url_for('logout') }}" class="btn btn-outline">Logout</a>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="p-6 bg-white rounded-lg shadow-sm border border-gray-100">
-                <h3 class="text-lg font-semibold text-gray-700 mb-2">Quick Actions</h3>
-                <ul class="space-y-2">
-                    <li><a href="#" class="nav-link">View Profile</a></li>
-                    <li><a href="#" class="nav-link">Settings</a></li>
-                    <li><a href="#" class="nav-link">Help Center</a></li>
-                </ul>
-            </div>
-            
-            <div class="p-6 bg-white rounded-lg shadow-sm border border-gray-100">
-                <h3 class="text-lg font-semibold text-gray-700 mb-2">Recent Activity</h3>
-                <p class="text-gray-600">No recent activity</p>
-            </div>
-            
-            <div class="p-6 bg-white rounded-lg shadow-sm border border-gray-100">
-                <h3 class="text-lg font-semibold text-gray-700 mb-2">Statistics</h3>
-                <p class="text-gray-600">Coming soon</p>
-            </div>
-        </div>
+<div class="dashboard card">
+  <h2>Welcome, {{ user.name }}!</h2>
+  <form method="POST" style="margin-bottom: 1rem;">
+    <label>Switch Role:</label>
+    <select name="switch_role" onchange="this.form.submit()">
+      <option value="admin" {% if user.role=='admin' %}selected{% endif %}>Admin</option>
+      <option value="teacher" {% if user.role=='teacher' %}selected{% endif %}>Teacher</option>
+      <option value="delegate" {% if user.role=='delegate' %}selected{% endif %}>Delegate</option>
+    </select>
+  </form>
+  {% if user.role == 'admin' %}
+    <div class="role-section admin">
+      <h3>Admin Dashboard</h3>
+      <ul>
+        <li>Manage platform settings</li>
+        <li>View all users</li>
+        <li>System analytics</li>
+      </ul>
     </div>
+  {% elif user.role == 'teacher' %}
+    <div class="role-section teacher">
+      <h3>Teacher Dashboard</h3>
+      <ul>
+        <li>View and manage classes</li>
+        <li>Track student progress</li>
+        <li>Schedule lessons</li>
+      </ul>
+    </div>
+  {% elif user.role == 'delegate' %}
+    <div class="role-section delegate">
+      <h3>Delegate Dashboard</h3>
+      <ul>
+        <li>Represent class in meetings</li>
+        <li>Track assigned tasks</li>
+        <li>Report to teacher and admin</li>
+      </ul>
+    </div>
+  {% endif %}
 </div>
 {% endblock %}
